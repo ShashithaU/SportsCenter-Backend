@@ -1,9 +1,9 @@
-package lk.icet.crm.controller;
+package lk.UOK.crm.controller;
 
-import lk.icet.crm.model.ProductResponse;
-import lk.icet.crm.service.BrandService;
-import lk.icet.crm.service.ProductService;
-import lk.icet.crm.service.TypeService;
+import lk.UOK.crm.model.ProductResponse;
+import lk.UOK.crm.service.BrandService;
+import lk.UOK.crm.service.ProductService;
+import lk.UOK.crm.service.TypeService;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.core.converters.models.Pageable;
 import org.springframework.data.domain.Page;

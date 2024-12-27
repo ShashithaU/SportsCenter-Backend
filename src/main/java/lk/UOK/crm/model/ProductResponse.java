@@ -1,4 +1,4 @@
-package lk.icet.crm.model;
+package lk.UOK.crm.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

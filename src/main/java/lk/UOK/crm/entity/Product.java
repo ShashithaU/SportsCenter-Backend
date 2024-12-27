@@ -1,4 +1,4 @@
-package lk.icet.crm.entity;
+package lk.UOK.crm.entity;
 
 
 import jakarta.persistence.*;
