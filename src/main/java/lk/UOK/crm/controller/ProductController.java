@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping("/api/products")
 @RequiredArgsConstructor
@@ -39,7 +40,6 @@ public class ProductController {
             @RequestParam(name = "sort", defaultValue = "name") String sort,
             @RequestParam(name = "order", defaultValue = "asc") String order
     ){
-        //Convert order to Sort direction
         Sort.Direction direction = order.equalsIgnoreCase("desc") ? Sort.Direction.DESC: Sort.Direction.ASC;
         Sort sorting = Sort.by(direction, sort);
         Pageable pageable = PageRequest.of(page, size, sorting);
@@ -58,7 +58,7 @@ public class ProductController {
             @RequestParam(name = "sort", defaultValue = "name") String sort,
             @RequestParam(name = "order", defaultValue = "asc") String order
     ){
-        //Convert order to Sort direction
+
         Sort.Direction direction = order.equalsIgnoreCase("desc") ? Sort.Direction.DESC: Sort.Direction.ASC;
         Sort sorting = Sort.by(direction, sort);
         Pageable pageable = PageRequest.of(page, size, sorting);
