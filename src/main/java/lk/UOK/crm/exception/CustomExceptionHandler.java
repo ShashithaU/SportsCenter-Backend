@@ -1,5 +1,6 @@
 package lk.UOK.crm.exception;
 
+import lk.UOK.crm.model.CustomErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
