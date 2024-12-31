@@ -22,8 +22,10 @@ public class TypeServiceImpl implements TypeService {
 
     @Override
     public List<TypeResponse> getAllTypes() {
-        log.info("Fetching All Types...");
+        log.info("Fetching All Types!!!");
+        //Fetch Types from DB
         List<Type> typeList = typeRepository.findAll();
+        //now use stream operator to map with Response
         List<TypeResponse> typeResponses = typeList.stream()
                 .map(this::convertToTypeResponse)
                 .collect(Collectors.toList());

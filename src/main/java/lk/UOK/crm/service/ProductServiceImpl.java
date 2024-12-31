@@ -15,17 +15,21 @@ import java.util.stream.Collectors;
 
 @Service
 @Log4j2
-@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService{
     private final ProductRepository productRepository;
 
+    public ProductServiceImpl(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
     @Override
     public ProductResponse getProductById(Integer productId) {
-        log.info("fetching Product by Id: {} ...", productId);
+        log.info("fetching Product by Id: {}", productId);
         Product product = productRepository.findById(productId)
-                .orElseThrow(()->new ProductNotFoundException("Product doesn't exist ..."));
+                .orElseThrow(()->new ProductNotFoundException("Product doesn't exist"));
+        //now convert the Product to Product Response
         ProductResponse productResponse = convertToProductResponse(product);
-        log.info("Fetched Product by Product Id: {} ...", productId);
+        log.info("Fetched Product by Product Id: {}", productId);
         return productResponse;
     }
 
