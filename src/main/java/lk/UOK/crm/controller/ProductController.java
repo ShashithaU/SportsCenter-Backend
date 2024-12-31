@@ -21,12 +21,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/products")
 @RequiredArgsConstructor
-@CrossOrigin
 public class ProductController {
     private final ProductService productService;
     private final BrandService brandService;
     private final TypeService typeService;
 
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductResponse> getProductById(@PathVariable("id")Integer productId){
+        ProductResponse productResponse = productService.getProductById(productId);
+        return new ResponseEntity<>(productResponse, HttpStatus.OK);
+    }
     @GetMapping()
     public ResponseEntity<Page<ProductResponse>> getProducts(
             @RequestParam(name = "page", defaultValue = "0") int page,
