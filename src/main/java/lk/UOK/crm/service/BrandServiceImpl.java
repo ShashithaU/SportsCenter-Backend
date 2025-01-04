@@ -1,9 +1,8 @@
 package lk.UOK.crm.service;
 
-
-import lk.UOK.crm.entity.Brand;
-import lk.UOK.crm.model.BrandResponse;
-import lk.UOK.crm.repository.BrandRepository;
+import com.ecommerce.sportscenter.entity.Brand;
+import com.ecommerce.sportscenter.model.BrandResponse;
+import com.ecommerce.sportscenter.repository.BrandRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 

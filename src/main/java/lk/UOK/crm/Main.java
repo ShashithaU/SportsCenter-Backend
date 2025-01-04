@@ -8,6 +8,6 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {"lk.icet.crm", "lk/UOK/crm/repository"})
 public class Main {
     public static void main(String[] args) {
-        SpringApplication.run(Main.class);
+        SpringApplication.run(Main.class, args);
     }
 }

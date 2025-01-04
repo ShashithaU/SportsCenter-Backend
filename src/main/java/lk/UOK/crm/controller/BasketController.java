@@ -1,11 +1,10 @@
 package lk.UOK.crm.controller;
 
-
-import lk.UOK.crm.entity.Basket;
-import lk.UOK.crm.entity.BasketItem;
-import lk.UOK.crm.model.BasketItemResponse;
-import lk.UOK.crm.model.BasketResponse;
-import lk.UOK.crm.service.BasketService;
+import com.ecommerce.sportscenter.entity.Basket;
+import com.ecommerce.sportscenter.entity.BasketItem;
+import com.ecommerce.sportscenter.model.BasketItemResponse;
+import com.ecommerce.sportscenter.model.BasketResponse;
+import com.ecommerce.sportscenter.service.BasketService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,5 +1,6 @@
 package lk.UOK.crm.service;
-import lk.UOK.crm.model.BrandResponse;
+
+import com.ecommerce.sportscenter.model.BrandResponse;
 
 import java.util.List;
 

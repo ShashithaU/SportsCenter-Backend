@@ -1,11 +1,10 @@
 package lk.UOK.crm.service;
 
-
-import lk.UOK.crm.entity.Basket;
-import lk.UOK.crm.entity.BasketItem;
-import lk.UOK.crm.model.BasketItemResponse;
-import lk.UOK.crm.model.BasketResponse;
-import lk.UOK.crm.repository.BasketRepository;
+import com.ecommerce.sportscenter.entity.Basket;
+import com.ecommerce.sportscenter.entity.BasketItem;
+import com.ecommerce.sportscenter.model.BasketItemResponse;
+import com.ecommerce.sportscenter.model.BasketResponse;
+import com.ecommerce.sportscenter.repository.BasketRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 

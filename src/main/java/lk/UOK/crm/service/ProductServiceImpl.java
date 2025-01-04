@@ -1,15 +1,15 @@
 package lk.UOK.crm.service;
 
-import lk.UOK.crm.entity.Product;
-import lk.UOK.crm.model.ProductResponse;
-import lk.UOK.crm.repository.ProductRepository;
-import lombok.RequiredArgsConstructor;
+import com.ecommerce.sportscenter.entity.Product;
+import com.ecommerce.sportscenter.exceptions.ProductNotFoundException;
+import com.ecommerce.sportscenter.model.ProductResponse;
+import com.ecommerce.sportscenter.repository.ProductRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import lk.UOK.crm.exception.ProductNotFoundException;
+
 import java.util.List;
 import java.util.stream.Collectors;
 

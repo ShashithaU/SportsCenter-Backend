@@ -1,22 +1,21 @@
 package lk.UOK.crm.controller;
 
-import lk.UOK.crm.model.BrandResponse;
-import lk.UOK.crm.model.ProductResponse;
-import lk.UOK.crm.model.TypeResponse;
-import lk.UOK.crm.service.BrandService;
-import lk.UOK.crm.service.ProductService;
-import lk.UOK.crm.service.TypeService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Pageable;
+import com.ecommerce.sportscenter.model.BrandResponse;
+import com.ecommerce.sportscenter.model.ProductResponse;
+import com.ecommerce.sportscenter.model.TypeResponse;
+import com.ecommerce.sportscenter.service.BrandService;
+import com.ecommerce.sportscenter.service.ProductService;
+import com.ecommerce.sportscenter.service.TypeService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/api/products")
@@ -45,7 +44,7 @@ public class ProductController {
             @RequestParam(name = "typeId", required = false) Integer typeId,
             @RequestParam(name = "sort", defaultValue = "name") String sort,
             @RequestParam(name = "order", defaultValue = "asc") String order
-    ){
+            ){
         //Convert order to Sort direction
         Sort.Direction direction = order.equalsIgnoreCase("desc") ? Sort.Direction.DESC: Sort.Direction.ASC;
         Sort sorting = Sort.by(direction, sort);

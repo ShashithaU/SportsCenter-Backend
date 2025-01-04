@@ -1,13 +1,15 @@
 package lk.UOK.crm.model;
 
+import com.ecommerce.sportscenter.entity.Brand;
+import com.ecommerce.sportscenter.entity.Type;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@Builder
 @Data
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class ProductResponse {
     private Integer id;
@@ -17,6 +19,4 @@ public class ProductResponse {
     private String pictureUrl;
     private String productBrand;
     private String productType;
-
-
 }

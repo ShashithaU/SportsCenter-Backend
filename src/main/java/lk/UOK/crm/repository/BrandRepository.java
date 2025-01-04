@@ -1,6 +1,6 @@
 package lk.UOK.crm.repository;
 
-import lk.UOK.crm.entity.Brand;
+import com.ecommerce.sportscenter.entity.Brand;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

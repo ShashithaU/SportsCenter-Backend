@@ -1,12 +1,10 @@
 package lk.UOK.crm.service;
 
-
-import lk.UOK.crm.entity.Type;
-import lk.UOK.crm.model.TypeResponse;
-import lk.UOK.crm.repository.TypeRepository;
+import com.ecommerce.sportscenter.entity.Type;
+import com.ecommerce.sportscenter.model.TypeResponse;
+import com.ecommerce.sportscenter.repository.TypeRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
-
 
 import java.util.List;
 import java.util.stream.Collectors;

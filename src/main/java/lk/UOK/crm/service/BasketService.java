@@ -1,9 +1,7 @@
 package lk.UOK.crm.service;
 
-
-
-import lk.UOK.crm.entity.Basket;
-import lk.UOK.crm.model.BasketResponse;
+import com.ecommerce.sportscenter.entity.Basket;
+import com.ecommerce.sportscenter.model.BasketResponse;
 
 import java.util.List;
 
