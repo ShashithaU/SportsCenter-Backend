@@ -1,5 +1,4 @@
-package lk.UOK.crm.entity;
-
+package com.ecommerce.sportscenter.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -32,5 +31,4 @@ public class Product {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="ProductTypeId", referencedColumnName = "Id")
     private Type type;
-
 }

@@ -1,15 +1,15 @@
-package lk.UOK.crm.model;
+package com.ecommerce.sportscenter.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@Builder
 @Data
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
-public class ProductResponse {
+public class BasketItemResponse {
     private Integer id;
     private String name;
     private String description;
@@ -17,6 +17,5 @@ public class ProductResponse {
     private String pictureUrl;
     private String productBrand;
     private String productType;
-
-
+    private Integer quantity;
 }

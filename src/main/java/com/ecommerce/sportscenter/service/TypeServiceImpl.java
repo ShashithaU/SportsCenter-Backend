@@ -1,12 +1,10 @@
-package lk.UOK.crm.service;
+package com.ecommerce.sportscenter.service;
 
-
-import lk.UOK.crm.entity.Type;
-import lk.UOK.crm.model.TypeResponse;
-import lk.UOK.crm.repository.TypeRepository;
+import com.ecommerce.sportscenter.entity.Type;
+import com.ecommerce.sportscenter.model.TypeResponse;
+import com.ecommerce.sportscenter.repository.TypeRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
-
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,8 +20,10 @@ public class TypeServiceImpl implements TypeService {
 
     @Override
     public List<TypeResponse> getAllTypes() {
-        log.info("Fetching All Types...");
+        log.info("Fetching All Types!!!");
+        //Fetch Types from DB
         List<Type> typeList = typeRepository.findAll();
+        //now use stream operator to map with Response
         List<TypeResponse> typeResponses = typeList.stream()
                 .map(this::convertToTypeResponse)
                 .collect(Collectors.toList());
