@@ -1,9 +1,10 @@
 package com.ecommerce.sportscenter.repository;
 
-import com.ecommerce.sportscenter.entity.Brand;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+import com.ecommerce.sportscenter.entity.Brand;
+
 @Repository
-public interface BrandRepository extends JpaRepository<Brand, Integer> {
+public interface BrandRepository extends MongoRepository<Brand, Integer> {
 }

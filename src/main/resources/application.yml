@@ -1,25 +1,12 @@
-
-server:
-  port: 8083
-
 spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/sports-center
-    username: root
-    password: 12345
-  application:
-    name: SportsCenter
-  jpa:
-    hibernate:
-      ddl-auto: update
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
-        format_sql: true
-
   data:
-    redis:
-      host: localhost
-      port: 6379
+    mongodb:
+      uri: mongodb+srv://udeshshashitha:1GLEyi9MzXp9BpHS@cluster0.r4whh.mongodb.net/sports-center
+      # Alternatively, specify individual properties
+      # host: localhost
+      # port: 27017
+      # database: database_name
+      # username: username
+      # password: password
+  application:
+    name: your-application-name
