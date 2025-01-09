@@ -1,8 +1,12 @@
 package com.ecommerce.sportscenter.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ecommerce.sportscenter.entity.Product;
 import com.ecommerce.sportscenter.service.BrandService;
 import com.ecommerce.sportscenter.service.ProductService;
 import com.ecommerce.sportscenter.service.TypeService;
@@ -20,6 +24,15 @@ public class ProductController {
         this.typeService = typeService;
     }
 
+     @GetMapping
+    public String hello(){
+        return "ProductController";
+    }
+
+    @PostMapping("/save")
+    public Product save (@RequestBody Product product){
+        return productService.save(product);
+    }
     // @GetMapping("/{id}")
     // public ResponseEntity<ProductResponse> getProductById(@PathVariable("id")Integer productId){
     //     ProductResponse productResponse = productService.getProductById(productId);

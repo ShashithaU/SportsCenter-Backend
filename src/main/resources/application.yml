@@ -1,12 +1,18 @@
+# server:
+#     port: 8080
+
+# Spring Boot application configuration
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://udeshshashitha:1GLEyi9MzXp9BpHS@cluster0.r4whh.mongodb.net/sports-center
+      uri: mongodb+srv://harindumanadul:vPqm77QKF9hK6wgF@cluster0.6kbs6.mongodb.net/sports-center
+      #uri: mongodb+srv://udeshshashitha:1GLEyi9MzXp9BpHS@cluster0.r4whh.mongodb.net/sports-center
       # Alternatively, specify individual properties
       # host: localhost
       # port: 27017
       # database: database_name
       # username: username
       # password: password
+  
   application:
     name: your-application-name

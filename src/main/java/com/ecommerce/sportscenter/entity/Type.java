@@ -12,5 +12,5 @@ public class Type {
     @Id
     private Integer id;
     private String name;
-    private List<Product> prodcts;
+    private List<String> prodctIdList;
 }
