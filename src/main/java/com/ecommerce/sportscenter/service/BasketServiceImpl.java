@@ -20,6 +20,11 @@ public class BasketServiceImpl implements BasketService{
     }
 
     @Override
+    public Basket save(Basket basket){
+        return basketRepository.save(basket);
+    }
+
+    @Override
     public List<BasketResponse> getAllBaskets() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAllBaskets'");

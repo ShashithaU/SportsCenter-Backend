@@ -12,8 +12,6 @@ import lombok.Data;
 public class Basket {
     @Id
     private String id;
-    private List<BasketItem> items = new ArrayList<>();
-    public Basket(String id) {
-        this.id = id;
-    }
+    private String userId;
+    private List<String> productIdList;
 }

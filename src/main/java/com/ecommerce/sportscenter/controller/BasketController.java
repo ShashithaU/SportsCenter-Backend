@@ -4,7 +4,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ecommerce.sportscenter.entity.Basket;
 import com.ecommerce.sportscenter.service.BasketService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping("/api/baskets")
@@ -17,8 +21,16 @@ public class BasketController {
 
     @GetMapping
     public String hello(){
-        return "Hello World";
+        return "BasketController";
     }
+
+
+    @PostMapping("/save")
+    public Basket save(@RequestBody Basket entity) {
+        
+        return basketService.save(entity);
+    }
+    
 
     // @GetMapping
     // public List<BasketResponse> getAllBaskets() {
