@@ -36,6 +36,10 @@ public class ProductServiceImpl implements ProductService{
        return productRepository.save(product);
     }
 
+    @Override
+    public Iterable<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
 //     @Override
 //     public ProductResponse getProductById(Integer productId) {
 //         log.info("fetching Product by Id: {}", productId);

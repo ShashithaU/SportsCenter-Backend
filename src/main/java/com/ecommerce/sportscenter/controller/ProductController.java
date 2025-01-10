@@ -24,14 +24,14 @@ public class ProductController {
         this.typeService = typeService;
     }
 
-     @GetMapping
-    public String hello(){
-        return "ProductController";
-    }
-
     @PostMapping("/save")
     public Product save (@RequestBody Product product){
         return productService.save(product);
+    }
+
+    @GetMapping("/all")
+    public Iterable<Product> all(){
+        return productService.getAllProducts();
     }
     // @GetMapping("/{id}")
     // public ResponseEntity<ProductResponse> getProductById(@PathVariable("id")Integer productId){

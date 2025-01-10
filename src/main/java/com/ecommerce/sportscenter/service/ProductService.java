@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface ProductService {
     public Product save(Product product);
+    public Iterable<Product> getAllProducts();
     ProductResponse getProductById(Integer productId);
     Page<ProductResponse> getProducts(Pageable pageable, Integer brandId, Integer typeId, String keyword);
 }
