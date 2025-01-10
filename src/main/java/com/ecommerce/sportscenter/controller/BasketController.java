@@ -1,7 +1,10 @@
 package com.ecommerce.sportscenter.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecommerce.sportscenter.entity.Basket;
@@ -19,18 +22,26 @@ public class BasketController {
         this.basketService = basketService;
     }
 
-    @GetMapping
-    public String hello(){
-        return "BasketController";
-    }
-
-
     @PostMapping("/save")
     public Basket save(@RequestBody Basket entity) {
-        
+        String userid = entity.getUserId();
+        Basket existingBasket = basketService.getBasketById(userid);
+        if (existingBasket != null && existingBasket.getUserId() != null) {
+            existingBasket.getProductIdList().addAll(entity.getProductIdList());
+            return basketService.save(existingBasket);
+        }
         return basketService.save(entity);
     }
     
+    @GetMapping("/all")
+    public List<Basket> all() {
+        return basketService.all();
+    }
+
+    @GetMapping("/userid")
+    public Basket getBasketById(@RequestParam String id){
+        return basketService.getBasketById(id);
+    }
 
     // @GetMapping
     // public List<BasketResponse> getAllBaskets() {

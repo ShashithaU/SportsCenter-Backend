@@ -25,16 +25,26 @@ public class BasketServiceImpl implements BasketService{
     }
 
     @Override
+    public List<Basket> all(){
+        return basketRepository.findAll();
+    }
+
+    @Override
+    public Basket getBasketById(String id){
+        return basketRepository.findByUserId(id);
+    }
+
+    @Override
     public List<BasketResponse> getAllBaskets() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAllBaskets'");
     }
 
-    @Override
-    public BasketResponse getBasketById(String basketId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getBasketById'");
-    }
+    // @Override
+    // public BasketResponse getBasketById(String basketId) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'getBasketById'");
+    // }
 
     @Override
     public void deleteBasketById(String basketId) {

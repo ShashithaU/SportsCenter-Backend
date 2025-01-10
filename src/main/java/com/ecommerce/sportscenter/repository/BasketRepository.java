@@ -9,4 +9,5 @@ import com.ecommerce.sportscenter.entity.Basket;
 public interface BasketRepository extends MongoRepository<Basket, String>{
     // Basket findByBasketId(String basketId);
     // void deleteByBasketId(String basketId);
+    public Basket findByUserId(String userId);
 }
