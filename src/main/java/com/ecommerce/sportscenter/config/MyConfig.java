@@ -1,8 +1,8 @@
 package com.ecommerce.sportscenter.config;
 
+import org.springframework.security.core.userdetails.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,7 +14,7 @@ public class MyConfig {
     @Bean
     public UserDetailsService userDetailsService(){
         UserDetails userDetails = User.builder()
-                .username("rahul")
+                .username("User")
                 .password(passwordEncoder().encode("Password"))
                 .roles("admin")
                 .build();

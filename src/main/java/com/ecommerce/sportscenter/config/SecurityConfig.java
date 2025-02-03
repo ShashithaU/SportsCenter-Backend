@@ -1,7 +1,5 @@
 package com.ecommerce.sportscenter.config;
 
-import com.ecommerce.sportscenter.security.JwtAuthenticationEntryPoint;
-import com.ecommerce.sportscenter.security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +11,9 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.ecommerce.sportscenter.security.JwtAuthenticationEntryPoint;
+import com.ecommerce.sportscenter.security.JwtAuthenticationFilter;
 
 @Configuration
 @EnableMethodSecurity()
@@ -34,6 +35,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests)->requests
                         .requestMatchers("/products").authenticated()
                         .requestMatchers("/auth/login").permitAll()
+                        .requestMatchers("/api/admin").authenticated()
                         .anyRequest().permitAll())
                 .exceptionHandling(ex-> ex.authenticationEntryPoint(entryPoint))
                 .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
