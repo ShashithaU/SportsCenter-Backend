@@ -7,5 +7,9 @@ import com.ecommerce.sportscenter.entity.User;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findByEmail(String email);  // Check if email exists
+    Optional<com.ecommerce.sportscenter.entity.User> findByEmail(String email);  // Check if email exists
+
+    com.ecommerce.sportscenter.entity.User save(org.springframework.security.core.userdetails.User user);
 }
+
+
