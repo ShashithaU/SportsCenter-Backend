@@ -1,14 +1,14 @@
 
 server:
-  port: 8083
+  port: 8081
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/sports-center
+    url: jdbc:mysql://localhost:3307/sports-center
     username: root
     password: 12345
   application:
-    name: SportsCenter
+    name: sports-center
   jpa:
     hibernate:
       ddl-auto: update
@@ -23,3 +23,5 @@ spring:
     redis:
       host: localhost
       port: 6379
+      
+# Redis (Remote Dictionary Server) is a super-fast, in-memory database used for caching, session management, and real-time data processing.

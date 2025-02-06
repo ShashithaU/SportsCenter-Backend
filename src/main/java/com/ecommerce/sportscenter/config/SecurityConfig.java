@@ -29,7 +29,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((requests)->requests
                         .requestMatchers("/products").authenticated()
@@ -40,8 +40,9 @@ public class SecurityConfig {
         http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
+
     @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception{
+    AuthenticationManager authenticationManager(HttpSecurity http) throws Exception{
         return authenticationManagerBuilder.getObject();
     }
 }
