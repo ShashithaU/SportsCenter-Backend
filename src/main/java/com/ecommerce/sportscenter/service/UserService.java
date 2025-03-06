@@ -1,12 +1,13 @@
-package com.example.sportsCenterLogin.service;
+package com.ecommerce.sportscenter.service;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import com.example.sportsCenterLogin.model.User;
-import com.example.sportsCenterLogin.repository.UserRepository;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.ecommerce.sportscenter.entity.User;
+import com.ecommerce.sportscenter.repository.UserRepository;
 
 @Service
 public class UserService {

@@ -1,16 +1,17 @@
 package com.ecommerce.sportscenter.controller;
 
-import com.ecommerce.sportscenter.entity.Basket;
-import com.ecommerce.sportscenter.entity.BasketItem;
-import com.ecommerce.sportscenter.model.BasketItemResponse;
-import com.ecommerce.sportscenter.model.BasketResponse;
-import com.ecommerce.sportscenter.service.BasketService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.stream.Collectors;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ecommerce.sportscenter.entity.Basket;
+import com.ecommerce.sportscenter.service.BasketService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping("/api/baskets")
@@ -21,53 +22,74 @@ public class BasketController {
         this.basketService = basketService;
     }
 
-    @GetMapping
-    public List<BasketResponse> getAllBaskets() {
-        return basketService.getAllBaskets();
+    @PostMapping("/save")
+    public Basket save(@RequestBody Basket entity) {
+        String userid = entity.getUserId();
+        Basket existingBasket = basketService.getBasketById(userid);
+        if (existingBasket != null && existingBasket.getUserId() != null) {
+            existingBasket.getProductIdList().addAll(entity.getProductIdList());
+            return basketService.save(existingBasket);
+        }
+        return basketService.save(entity);
+    }
+    
+    @GetMapping("/all")
+    public List<Basket> all() {
+        return basketService.all();
     }
 
-    @GetMapping("/{basketId}")
-    public BasketResponse getBasketById(@PathVariable String basketId){
-        return basketService.getBasketById(basketId);
-    }
-    @DeleteMapping("/{basketId}")
-    public void deleteBasketById(@PathVariable String basketId){
-        basketService.deleteBasketById(basketId);
+    @GetMapping("/userid")
+    public Basket getBasketById(@RequestParam String id){
+        return basketService.getBasketById(id);
     }
 
-    @PostMapping
-    public ResponseEntity<BasketResponse> createBasket(@RequestBody BasketResponse basketResponse){
-        //convert this basket response to basket entity
-        Basket basket = convertToBasketEntity(basketResponse);
-        //call the service method to create the basket
-        BasketResponse createdBasket = basketService.createBasket(basket);
-        //Return the Created Basket
-        return new ResponseEntity<>(createdBasket, HttpStatus.CREATED);
-    }
+    // @GetMapping
+    // public List<BasketResponse> getAllBaskets() {
+    //     return basketService.getAllBaskets();
+    // }
 
-    private Basket convertToBasketEntity(BasketResponse basketResponse) {
-        Basket basket = new Basket();
-        basket.setId(basketResponse.getId());
-        basket.setItems(mapBasketItemResponsesToEntities(basketResponse.getItems()));
-        return basket;
-    }
+    // @GetMapping("/{basketId}")
+    // public BasketResponse getBasketById(@PathVariable String basketId){
+    //     return basketService.getBasketById(basketId);
+    // }
+    // @DeleteMapping("/{basketId}")
+    // public void deleteBasketById(@PathVariable String basketId){
+    //     basketService.deleteBasketById(basketId);
+    // }
 
-    private List<BasketItem> mapBasketItemResponsesToEntities(List<BasketItemResponse> itemResponses) {
-        return itemResponses.stream()
-                .map(this::convertToBasketItemEntity)
-                .collect(Collectors.toList());
-    }
+    // @PostMapping
+    // public ResponseEntity<BasketResponse> createBasket(@RequestBody BasketResponse basketResponse){
+    //     //convert this basket response to basket entity
+    //     Basket basket = convertToBasketEntity(basketResponse);
+    //     //call the service method to create the basket
+    //     BasketResponse createdBasket = basketService.createBasket(basket);
+    //     //Return the Created Basket
+    //     return new ResponseEntity<>(createdBasket, HttpStatus.CREATED);
+    // }
 
-    private BasketItem convertToBasketItemEntity(BasketItemResponse itemResponse) {
-        BasketItem basketItem = new BasketItem();
-        basketItem.setId(itemResponse.getId());
-        basketItem.setName(itemResponse.getName());
-        basketItem.setDescription(itemResponse.getDescription());
-        basketItem.setPrice(itemResponse.getPrice());
-        basketItem.setPictureUrl(itemResponse.getPictureUrl());
-        basketItem.setProductBrand(itemResponse.getProductBrand());
-        basketItem.setProductType(itemResponse.getProductType());
-        basketItem.setQuantity(itemResponse.getQuantity());
-        return basketItem;
-    }
+    // private Basket convertToBasketEntity(BasketResponse basketResponse) {
+    //     Basket basket = new Basket(basketResponse.getId());
+    //     basket.setId(basketResponse.getId());
+    //     basket.setItems(mapBasketItemResponsesToEntities(basketResponse.getItems()));
+    //     return basket;
+    // }
+
+    // private List<BasketItem> mapBasketItemResponsesToEntities(List<BasketItemResponse> itemResponses) {
+    //     return itemResponses.stream()
+    //             .map(this::convertToBasketItemEntity)
+    //             .collect(Collectors.toList());
+    // }
+
+    // private BasketItem convertToBasketItemEntity(BasketItemResponse itemResponse) {
+    //     BasketItem basketItem = new BasketItem();
+    //     basketItem.setId(itemResponse.getId());
+    //     basketItem.setName(itemResponse.getName());
+    //     basketItem.setDescription(itemResponse.getDescription());
+    //     basketItem.setPrice(itemResponse.getPrice());
+    //     basketItem.setPictureUrl(itemResponse.getPictureUrl());
+    //     basketItem.setProductBrand(itemResponse.getProductBrand());
+    //     basketItem.setProductType(itemResponse.getProductType());
+    //     basketItem.setQuantity(itemResponse.getQuantity());
+    //     return basketItem;
+    // }
 }

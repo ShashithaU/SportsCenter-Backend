@@ -1,4 +1,4 @@
-package com.example.sportsCenterLogin.controller;
+package com.ecommerce.sportscenter.controller;
 
 import java.util.List;
 
@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.sportsCenterLogin.model.User;
-import com.example.sportsCenterLogin.service.UserService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.ecommerce.sportscenter.entity.User;
+import com.ecommerce.sportscenter.service.UserService;
 
 
 @RestController

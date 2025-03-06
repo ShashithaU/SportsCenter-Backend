@@ -1,11 +1,11 @@
 package com.ecommerce.sportscenter.entity;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.persistence.Id;
 import lombok.Data;
-import org.springframework.data.redis.core.RedisHash;
 
 @Data
-@RedisHash("BasketItem")
+@Document(collection="basketItem")
 public class BasketItem {
     @Id
     private Integer id;
