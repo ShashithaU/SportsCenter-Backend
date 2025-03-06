@@ -2,10 +2,21 @@ package com.ecommerce.sportscenter.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
-
 import com.ecommerce.sportscenter.entity.User;
+
+import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
-    User findByEmail(String email);
+    
+    Optional<User> findByEmail(String email);
+
+    List<User> findByRole(String role);
+
+    boolean existsByEmail(String email);
+
+    List<User> findByNameIgnoreCaseContaining(String name);
+
+    List<User> findByActiveTrue();
 }
